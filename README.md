@@ -13,4 +13,4 @@
 
 ### Дисциплины
 
-[Основы информатики и программирования][url](https://student.petrsu.ru/subject/view/22065)
+[Основы информатики и программирования](https://student.petrsu.ru/subject/view/22065)
