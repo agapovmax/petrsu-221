@@ -14,3 +14,9 @@
 ### Дисциплины
 
 [Основы информатики и программирования](https://student.petrsu.ru/subject/view/22065)
+
+[Математический анализ](https://student.petrsu.ru/subject/view/2002)
+
+### Полезные ссылки
+
+[Moodle](https://moodle2.petrsu.ru/?)
