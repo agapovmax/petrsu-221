@@ -15,9 +15,9 @@
 
 ### Дисциплины
 
-[Основы информатики и программирования](https://student.petrsu.ru/subject/view/22065)
+[📺](https://meet.cs.petrsu.ru/imit_zaoch) [Основы информатики и программирования](https://student.petrsu.ru/subject/view/22065)
 
-[Математический анализ](https://student.petrsu.ru/subject/view/2002)
+[📺](https://meet.cs.petrsu.ru/kruchek) [Математический анализ](https://student.petrsu.ru/subject/view/2002) 
 
 ### Полезные ссылки
 
