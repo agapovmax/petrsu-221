@@ -229,10 +229,11 @@ Breakpoint 1, is_lychrel_candidate (number=1) at lychrel.c:43
 
 ```
 (gdb) set var number=1999999999999999999
+```
 
 ## 4.2 Войдите в функцию is_lychrel_candidate() (Step Into). Отслеживая значения переменных n и r, выполняйте функцию по шагам, убедитесь, что обращение числа может вызвать переполнение. 
 
-```
+```c
 (gdb) disp r
 3: r = 0
 (gdb) disp n
