@@ -29,7 +29,10 @@ void show_lychrel_candidates(long last_number)
 {
     long number;
 
-    /* Проверим каждое число в заданном отрезке: */
+ 
+
+
+   /* Проверим каждое число в заданном отрезке: */
     for (number = 1; number <= last_number; number++) {
         /* Если оно является кандидатом в числа Лишрел, напечатаем его */
         if (is_lychrel_candidate(number)) {
@@ -46,7 +49,7 @@ int is_lychrel_candidate(long number)
     /* Повторяем ... */
     do {
         /* Если сумма числа и его обращения переполняет разрядную сетку, */
-        if (r == -1 || n > LONG_MAX - r) {
+        if (n > LONG_MAX - r) {
             /* то считаем число искомым кандидатом и завершаем проверку */
             return 1;
         }
@@ -67,14 +70,15 @@ long reverse(long n)
 {
     long r = 0;
 
+    if (n > LONG_MAX) {
+    /* то считаем число искомым кандидатом и завершаем проверку */
+       return -1;
+    }
+
     do {
-        if (r > LONG_MAX)
-            return -1;
         r = r * 10 + n % 10;
         n /= 10;
-
     } while (n > 0);
 
     return r;
-
 }
