@@ -1,8 +1,8 @@
 # Переменные для проекта
 
 toolchain=/usr/bin/gcc
-#flags= -g -O0 # -fsanitize=address - поможет в выводе исчерпывающей информации о сбое (SIGSEGV или SIGFPE)
-flags=-O0 # -fsanitize=address - поможет в выводе исчерпывающей информации о сбое (SIGSEGV или SIGFPE)
+flags=-g -O0 # -fsanitize=address - поможет в выводе исчерпывающей информации о сбое (SIGSEGV или SIGFPE)
+#flags=-O0 # -fsanitize=address - поможет в выводе исчерпывающей информации о сбое (SIGSEGV или SIGFPE)
 main=main.o
 prog=lychrel
 
