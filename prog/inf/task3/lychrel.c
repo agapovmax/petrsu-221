@@ -66,9 +66,15 @@ int is_lychrel_candidate(long number)
 long reverse(long n)
 {
     long r = 0;
-
+    /* Кто такой вообще этот ваш LONG_MAX?*/
+    long max = LONG_MAX;
     do {
-        if (r > LONG_MAX)
+    /* Проверяем переполнение */
+        printf("%ld\n", max);
+        /* Так как r не сможет принять значение больше LONG_MAX, отнимем из LONG_MAX 1 и сверим 
+        получается, возврат -1 выйдет в случае, если r примет значение больше 9223372036854775806 
+        */
+        if ((LONG_MAX - 1) < r)
             return -1;
         r = r * 10 + n % 10;
         n /= 10;
