@@ -19,6 +19,8 @@
 
 [📺](https://meet.cs.petrsu.ru/kruchek) [Математический анализ](https://student.petrsu.ru/subject/view/2002) 
 
+[📺](https://us04web.zoom.us/j/6868307049?pwd=NHlBVFVPWHQ1Z2M2eWhMc0NVWi9XUT09&omn=79874945406) [Деловые коммуникации](https://student.petrsu.ru/subject/view/2913)
+
 ### Полезные ссылки
 
 [Moodle](https://moodle2.petrsu.ru/?)
