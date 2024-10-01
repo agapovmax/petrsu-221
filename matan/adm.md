@@ -4,9 +4,9 @@
 
 ### Программа и лекции на 1 семестр 
 
-#### [Функции и пределы](https://moodle2.petrsu.ru/mod/resource/view.php?id=129065)
+#### [M1. Функции и пределы](https://moodle2.petrsu.ru/mod/resource/view.php?id=129065)
 
-#### Основы дифференциального исчисления
+#### [M2. Основы дифференциального исчисления](https://moodle2.petrsu.ru/mod/resource/view.php?id=129790)
 
 #### Неопределенный интеграл
 
