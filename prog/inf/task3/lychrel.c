@@ -1,3 +1,11 @@
+/**
+ * "lychrel.c -- ненавижу"
+ *
+ * Copyright (c) 2024, Max Agapov <mtagapov@cs.petrsu.ru>
+ *
+ * This code is licensed under MIT license.
+ */
+
 #include <stdio.h>
 #include <limits.h>
 
@@ -33,7 +41,7 @@ void show_lychrel_candidates(long last_number)
     for (number = 1; number <= last_number; number++) {
         /* Если оно является кандидатом в числа Лишрел, напечатаем его */
         if (is_lychrel_candidate(number)) {
-            printf("%ld\n", number);
+        //    printf("%ld\n", number);
         }
     }
 }
@@ -45,8 +53,11 @@ int is_lychrel_candidate(long number)
 
     /* Повторяем ... */
     do {
-        /* Если сумма числа и его обращения переполняет разрядную сетку, */
-        if (r == -1 || n > LONG_MAX - r) {
+        /* Если сумма числа и его обращения n = n + r (786 = 195+591) переполняет разрядную сетку, */
+        if ((r == -1) || (n > LONG_MAX - r)) {
+            // 786 > LONG_MAX - 591
+            /* то считаем число искомым кандидатом и завершаем проверку */
+            printf("Число в кандидаты Лишрел: ");
             /* то считаем число искомым кандидатом и завершаем проверку */
             return 1;
         }
@@ -67,15 +78,14 @@ long reverse(long n)
 {
     long r = 0;
     /* Кто такой вообще этот ваш LONG_MAX?*/
-    long max = LONG_MAX;
+
     do {
-    /* Проверяем переполнение */
-        printf("%ld\n", max);
-        /* Так как r не сможет принять значение больше LONG_MAX, отнимем из LONG_MAX 1 и сверим 
-        получается, возврат -1 выйдет в случае, если r примет значение больше 9223372036854775806 
-        */
-        if ((LONG_MAX - 1) < r)
-            return -1;
+        /* Проверяем переполнение
+         Так как r (оборотное число) не сможет принять значение больше LONG_MAX, перед операцией обращения числа, необходимо выполнить проверку
+	    */
+        if (r > LONG_MAX / 10 - n % 10) {
+                return -1;
+        }
         r = r * 10 + n % 10;
         n /= 10;
 
