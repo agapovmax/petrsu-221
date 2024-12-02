@@ -6,7 +6,11 @@ calc.o:
 
 .PHONY: rational
 rational:
-	cd rational && $(MAKE)
-	
+# https://www.gnu.org/software/make/manual/html_node/MAKE-Variable.html
+	cd rational && $(MAKE) 
+
 clean:
-	rm calc calc.o rational/*.o rational/*.so
+	rm calc calc.o rational/*.o rational/*.so 2>/dev/null
+
+clear:
+	rm calc calc.o rational/*.o rational/*.so 2>/dev/null

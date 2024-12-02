@@ -7,12 +7,6 @@
 // Переменная для последнего введенного значения в виде дроби
 rational_t last;
 
-// Калькуляция
-void math_rational(rational_t ch1, rational_t ch2, char operator);
-
-// Функция перевода строки в рациональное число*/
-rational_t str_to_rational(char *chlen);
-
 // Функция обработки чисел из строки в rational_t перед расчетом на калькуляторе
 void input_rational(char *chlen1, char *chlen2, char operator) {
     // Объявляем числа первой и второй дроби
@@ -29,6 +23,7 @@ void input_rational(char *chlen1, char *chlen2, char operator) {
 // Операции с числами
 void math_rational(rational_t ch1, rational_t ch2, char operator) {
     // Результат будем хранить в переменной с типом rational_t
+    printf("Первая дробь %ld\t\tВторая дробь %ld\n", ch1, ch2);
     rational_t res;
 
     // Проверяем ввод с консоли на тип операции
@@ -44,7 +39,7 @@ void math_rational(rational_t ch1, rational_t ch2, char operator) {
     if (operator=='*') {
         res=rat_mul(ch1, ch2);
     }
-
+    printf("Результат= %ld\t\t\t%ld\n", res.num, res.denom);
     // Сохраняем переменную res в last
     last = res;
 
@@ -66,9 +61,9 @@ rational_t str_to_rational(char *chlen) {
 
     // Иначе выводим дробь 
     long num=0, denom=0;
-
+    
     // sscanf - это scanf, но только данные получаются не из консоли, а из строки chlen. Символ дроби надо игнорировать
     sscanf(chlen, "%ld%*c%ld", &num, &denom);
-    
+    printf("После перевода из строки = %ld\t\t%ld\n", num, denom);
     return rational(num, denom);
 }
