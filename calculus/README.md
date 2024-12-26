@@ -10,11 +10,15 @@
 
 #### Вспомогательные материалы:
 * задача 1
+  [Пределы функций](http://mathprofi.ru/predely_primery_reshenii.html)
+  [Замечательные пределы](https://www.matburo.ru/sub_spr.php?p=zp)
   
 * задача 6
+  
   [Непрерывность функции. Точки разрыва функции.](https://www.youtube.com/watch?v=If_w_F7ZdwE&ab_channel=AndreiGradient)
 
 * задача 7
+  
   [Как исследовать функцию и построить её график?](http://www.mathprofi.ru/polnoe_issledovanie_funkcii_i_postroenie_grafika.html)
 
 Решение пределов, производных [онлайн](https://mathdf.com/ru/)
