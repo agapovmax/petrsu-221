@@ -19,7 +19,7 @@
 
 [📺](https://meet.cs.petrsu.ru/imit_zaoch) [Моделирование бизнес-процессов](https://student.petrsu.ru/subject/view/22065)
 
-[📺](https://meet.cs.petrsu.ru/imit_zaoch) [Основы информатики и программирования (2 семестр)](https://student.petrsu.ru/subject/view/22065)
+[📺](https://meet.cs.petrsu.ru/dimitrov) [Основы информатики и программирования (2 семестр)](https://student.petrsu.ru/subject/view/22065)
 
 [📺](https://meet.cs.petrsu.ru/imit_zaoch) [Основы информатики и программирования](https://student.petrsu.ru/subject/view/22065) 👌
 
