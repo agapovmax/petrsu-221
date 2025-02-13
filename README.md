@@ -15,7 +15,7 @@
 
 ### Дисциплины
 
-[📺]([https://meet.cs.petrsu.ru/imit_zaoch](https://us04web.zoom.us/j/79656901024?pwd=5rkAeu3c6bwRn0Hnv07Iuxpjb1mBbO.1)) [Аналитическая геометрия](https://student.petrsu.ru/subject/view/2022) 
+[📺](https://us04web.zoom.us/j/79656901024?pwd=5rkAeu3c6bwRn0Hnv07Iuxpjb1mBbO.1) [Аналитическая геометрия](https://student.petrsu.ru/subject/view/2022) 
 
 [📺](https://meet.cs.petrsu.ru/imit_zaoch) [Дискретная математика](https://student.petrsu.ru/subject/view/111223)
 
