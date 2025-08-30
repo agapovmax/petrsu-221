@@ -16,9 +16,9 @@
 ### Дисциплины 2 курс
 [📺](https://meet.cs.petrsu.ru/kruchek) [Математический анализ](https://student.petrsu.ru/subject/view/2002)
 
-[Информационная безопасность и защита информации](https://student.petrsu.ru/subject/view/2737)
+[Информационная безопасность и защита информации](https://student.petrsu.ru/subject/view/2737) [Соколов Владислав Евгеньевич](https://petrsu.ru/persons/2004/sokolov)
 
-[Введение в архитектуру ЭВМ](https://student.petrsu.ru/subject/view/10560)
+[Введение в архитектуру ЭВМ](https://student.petrsu.ru/subject/view/10560) [Богоявленский Юрий Анатольевич](https://petrsu.ru/persons/1400/bogoyavlenskij)
 
 ### Дисциплины 1 курс
 
@@ -26,11 +26,11 @@
 
 👌[📺](https://meet.cs.petrsu.ru/imit_zaoch) [Дискретная математика](https://student.petrsu.ru/subject/view/111223)
 
-👌[📺](https://meet.cs.petrsu.ru/imit_zaoch) [Моделирование бизнес-процессов](https://student.petrsu.ru/subject/view/22065)
+👌[📺](https://meet.cs.petrsu.ru/imit_zaoch) [Моделирование бизнес-процессов](https://student.petrsu.ru/subject/view/22065) [Соколов Владислав Евгеньевич](https://petrsu.ru/persons/2004/sokolov)
 
 👌[📺](https://meet.cs.petrsu.ru/dimitrov) [Основы информатики и программирования (2 семестр)](https://student.petrsu.ru/subject/view/22065) Димитров Вячеслав Михайлович
 
-👌[📺](https://meet.cs.petrsu.ru/imit_zaoch) [Основы информатики и программирования](https://student.petrsu.ru/subject/view/22065) 
+👌[📺](https://meet.cs.petrsu.ru/imit_zaoch) [Основы информатики и программирования](https://student.petrsu.ru/subject/view/22065) [Чистяков Дмитрий Борисович](https://petrsu.ru/persons/1668/tchistyakov) 
 
 👌[📺](https://meet.cs.petrsu.ru/kruchek) [Математический анализ](https://student.petrsu.ru/subject/view/2002)
 
