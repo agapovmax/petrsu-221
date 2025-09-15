@@ -20,6 +20,8 @@
 
 [Введение в архитектуру ЭВМ](https://student.petrsu.ru/subject/view/10560) [Богоявленский Юрий Анатольевич](https://petrsu.ru/persons/1400/bogoyavlenskij)
 
+[📺](https://meet.cs.petrsu.ru/imit_zaoch)[Введение в архитектуру ЭВМ](https://student.petrsu.ru/subject/view/10560) [Чистяков Дмитрий Борисович](https://petrsu.ru/persons/1668/tchistyakov) 
+
 ### Дисциплины 1 курс
 
 👌[📺](https://us04web.zoom.us/j/79656901024?pwd=5rkAeu3c6bwRn0Hnv07Iuxpjb1mBbO.1) [Аналитическая геометрия](https://student.petrsu.ru/subject/view/2022) 
