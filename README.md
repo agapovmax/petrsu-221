@@ -18,7 +18,7 @@
 
 [Информационная безопасность и защита информации](https://student.petrsu.ru/subject/view/2737) [Соколов Владислав Евгеньевич](https://petrsu.ru/persons/2004/sokolov)
 
-[Введение в архитектуру ЭВМ](https://student.petrsu.ru/subject/view/10560) [Богоявленский Юрий Анатольевич](https://petrsu.ru/persons/1400/bogoyavlenskij)
+[📺](https://meet.cs.petrsu.ru/ybgv-conf)[Введение в архитектуру ЭВМ](https://student.petrsu.ru/subject/view/10560) [Богоявленский Юрий Анатольевич](https://petrsu.ru/persons/1400/bogoyavlenskij)
 
 [📺](https://meet.cs.petrsu.ru/imit_zaoch)[Введение в архитектуру ЭВМ](https://student.petrsu.ru/subject/view/10560) [Чистяков Дмитрий Борисович](https://petrsu.ru/persons/1668/tchistyakov) 
 
