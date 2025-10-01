@@ -16,7 +16,7 @@
 ### Дисциплины 2 курс
 [📺](https://meet.cs.petrsu.ru/kruchek) [Математический анализ](https://student.petrsu.ru/subject/view/2002)
 
-[Информационная безопасность и защита информации](https://student.petrsu.ru/subject/view/2737) [Соколов Владислав Евгеньевич](https://petrsu.ru/persons/2004/sokolov)
+[📺](https://telemost.yandex.ru/j/50531948551344)[Информационная безопасность и защита информации](https://student.petrsu.ru/subject/view/2737) [Соколов Владислав Евгеньевич](https://petrsu.ru/persons/2004/sokolov)
 
 [📺](https://meet.cs.petrsu.ru/ybgv-conf)[Введение в архитектуру ЭВМ](https://student.petrsu.ru/subject/view/10560) [Богоявленский Юрий Анатольевич](https://petrsu.ru/persons/1400/bogoyavlenskij)
 
