@@ -2,7 +2,7 @@
 
 Подключение по ssh magapov@kappa.cs.petrsu.ru
 
-Лекции и лабораторные работы [Архитектура ЭВМ](https://cs.petrsu.ru/~chistyak/architecture/tasks/)
+Лекции и лабораторные работы [Архитектура ЭВМ](https://cs.petrsu.ru/~chistyak/architecture/tasks/) [Лекции](https://cs.petrsu.ru/~chistyak/architecture/)
 
 Лекции и лабораторные работы [Основы информатики и программирования](https://kappa.cs.petrsu.ru/~chistyak/inf/2024/)
 
