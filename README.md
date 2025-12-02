@@ -14,6 +14,11 @@
 **Староста группы** Жилинский Вячеслав https://t.me/doomzorqe, https://vk.com/doomzorqe
 
 ### Дисциплины 2 курс
+
+[📺](https://telemost.yandex.ru/j/09109134541043) [Алгоритмы и структуры данных](https://student.petrsu.ru/subject/view/10966) [Рейкенен Ярослав Осипович](https://vk.com/yarslv3)
+
+[📺](https://meet.cs.petrsu.ru/kiri) [Информационные системы в бизнесе и управлении](https://student.petrsu.ru/subject/view/2919) [Кириленко Александр Николаевич](https://petrsu.ru/persons/2675/kirilenko)
+
 [📺](https://meet.cs.petrsu.ru/kruchek) [Математический анализ](https://student.petrsu.ru/subject/view/2002)
 
 [📺](https://telemost.yandex.ru/j/50531948551344) [Информационная безопасность и защита информации](https://student.petrsu.ru/subject/view/2737) [Соколов Владислав Евгеньевич](https://petrsu.ru/persons/2004/sokolov)
@@ -22,7 +27,7 @@
 
 [📺](https://meet.cs.petrsu.ru/imit_zaoch) [Введение в архитектуру ЭВМ](https://student.petrsu.ru/subject/view/10560) [Чистяков Дмитрий Борисович](https://petrsu.ru/persons/1668/tchistyakov)
 
-[📺](https://meet.cs.petrsu.ru/kulakov) Тестирование ПО [Кулаков Кирилл Александрович](https://petrsu.ru/persons/2309/kulakov)
+👌[📺](https://meet.cs.petrsu.ru/kulakov) Тестирование ПО [Кулаков Кирилл Александрович](https://petrsu.ru/persons/2309/kulakov)
 
 [📺](https://meet.cs.petrsu.ru/rego) Объектно-ориентированное программирование [Рего Григорий Эйнович](https://petrsu.ru/persons/9919/rego)
 
