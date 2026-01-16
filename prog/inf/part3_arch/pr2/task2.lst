@@ -1,0 +1,47 @@
+GAS LISTING task2.S 			page 1
+
+
+   1              	.include "my-macro"	# подключение файла с макроопределениями
+   1              	/* Макроопределение завершения работы */
+   2              	
+   3              	.macro Finish
+   4              	    movl $0, %ebx 	# first argument: exit code
+   5              	    movl $1, %eax 	# sys_exit index
+   6              	    int  $0x80 		# kernel interrupt
+   7              	.endm
+   8              	
+   2              	
+   3              	.text
+   4              	        
+   5              	.global _start
+   6              	_start:	
+   7 0000 90       		nop
+   8 0001 B8050000 	        movl $5, %eax
+   8      00
+   9 0006 BB010000 		movl $1, %ebx
+   9      00
+  10              	
+  11              	L1: 	
+  12 000b 83F800   	        cmpl  $0, %eax
+  13 000e 7406     		je    L2
+  14 0010 0FAFD8   		imull %eax, %ebx
+  15 0013 48       		decl  %eax
+  16 0014 EBF5     		jmp   L1
+  17              		
+  18              	L2:	
+  19              	        Finish
+  19 0016 BB000000 	>  movl $0,%ebx
+  19      00
+  19 001b B8010000 	>  movl $1,%eax
+  19      00
+  19 0020 CD80     	>  int $0x80
+  20              	.end
+GAS LISTING task2.S 			page 2
+
+
+DEFINED SYMBOLS
+             task2.S:6      .text:00000000 _start
+             task2.S:11     .text:0000000b L1
+             task2.S:18     .text:00000016 L2
+
+NO UNDEFINED SYMBOLS

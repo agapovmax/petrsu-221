@@ -1,0 +1,283 @@
+/*
+ * Программа вычисления вектора b(i) = A(k,i) + A(i,l)
+ * где A - квадратная матрица 6x6 с 4-байтовыми элементами
+ * k и l вводятся из stdin
+ * Тестирование: echo -e "2\n4\n" | ./vector_calc
+ */
+
+.include "my-macro"
+
+.bss
+    .lcomm c, 1                 # буфер для чтения одного байта из stdin
+    .lcomm last_digit, 1        # буфер для хранения последней введенной цифры
+    .lcomm output_buf, 20       # буфер для вывода результата (макс 10 цифр + '\n')
+
+.data
+    result_vector: .long 0, 0, 0, 0, 0, 0    # результирующий вектор (6 элементов по 4 байта)
+    # Матрица A размером 6x6 (4-байтовые элементы)
+    matrix_A:
+        .long 11, 12, 13, 14, 15, 16
+        .long 21, 22, 23, 24, 25, 26
+        .long 31, 32, 33, 34, 35, 36
+        .long 41, 42, 43, 44, 45, 46
+        .long 51, 52, 53, 54, 55, 56
+        .long 61, 62, 63, 64, 65, 66
+
+    k_index: .long 0            # индекс k (номер строки)
+    l_index: .long 0            # индекс l (номер столбца)
+    input_stage: .long 0        # этап ввода: 0=ввод k, 1=ввод l
+
+.text
+.global _start
+
+_start:
+    nop                         # для отладчика
+
+    movl $0, k_index            # инициализация k = 0
+    movl $0, l_index            # инициализация l = 0
+    movb $0, last_digit         # инициализация последней цифры
+    movl $0, input_stage        # начинаем с ввода k
+
+    Puts "Введите значение k (0-5) и нажмите Enter:"
+
+kbd_input:
+    Getchar $c                  # макровызов ввода байта из stdin
+
+    cmpl $0, %eax               # наступило событие EOF?
+    je error_no_input           # ДА - ошибка, недостаточно данных
+
+    cmpb $'\n', c               # это символ перевода строки (Enter)?
+    je process_enter            # ДА - обработать Enter
+
+    cmpb $'9', c                # код больше кода символа '9'?
+    ja kbd_input                # ДА - игнорируем (не цифра)
+
+    cmpb $'0', c                # код меньше кода символа '0'?
+    jb kbd_input                # ДА - игнорируем (не цифра)
+
+    # Это цифра - сохраняем её как последнюю
+    movb c, %al                 # передать код символа цифры из c в al
+    movb %al, last_digit        # сохранить последнюю введенную цифру
+
+    jmp kbd_input               # на ввод следующего символа
+
+process_enter:
+    # Преобразование кода символа в числовое значение
+    movzbl last_digit, %eax     # загрузить код последней цифры в eax
+
+    # Проверка: была ли введена хотя бы одна цифра
+    cmpl $0, %eax               # если код = 0, значит цифры не было
+    je kbd_input                # пропускаем пустой Enter
+
+    subl $'0', %eax             # вычесть код символа '0' - получим числовое значение (0-9)
+
+    # Проверка диапазона (должно быть 0-5)
+    cmpl $5, %eax               # проверяем, не больше ли 5
+    ja invalid_index            # если больше - ошибка
+
+    # Сохранить введенное значение в зависимости от этапа ввода
+    cmpl $0, input_stage        # проверяем этап ввода
+    je save_k_index             # если 0 - сохраняем в k
+    jmp save_l_index            # иначе - сохраняем в l
+
+save_k_index:
+    movl %eax, k_index          # сохранить значение k
+    movb $0, last_digit         # сбросить последнюю цифру
+    movl $1, input_stage        # переход к вводу l
+
+    Puts "Введите значение l (0-5) и нажмите Enter:"
+    jmp kbd_input               # продолжить ввод
+
+save_l_index:
+    movl %eax, l_index          # сохранить значение l
+    jmp calculate_vector        # переход к вычислению вектора
+
+invalid_index:
+    Puts "Ошибка: индекс должен быть в диапазоне 0-5"
+    Exit $1                     # завершить программу с кодом ошибки
+
+error_no_input:
+    Puts "Ошибка: недостаточно входных данных"
+    Exit $1                     # завершить программу с кодом ошибки
+
+# Вычисление вектора b(i) = A(k,i) + A(i,l)
+calculate_vector:
+    Puts "Вычисление вектора b(i) = A(k,i) + A(i,l):"
+
+    movl $0, %edi               # i = 0 (индекс элемента вектора, используем %edi)
+
+calc_loop:
+    # Вычисление A(k,i)
+    # Адрес A(k,i) = matrix_A + (k * 6 + i) * 4
+    movl k_index, %eax          # загрузить k
+    movl $6, %ebx               # размер строки
+    mull %ebx                   # eax = k * 6, edx испорчен
+    addl %edi, %eax             # eax = k * 6 + i
+
+    # Умножаем на 4 через сдвиг вместо mull
+    shll $2, %eax               # eax = (k * 6 + i) * 4
+
+    movl $matrix_A, %ebx        # базовый адрес матрицы
+    addl %ebx, %eax             # eax = адрес A(k,i)
+    movl (%eax), %ecx           # ecx = A(k,i)
+
+    # Вычисление A(i,l)
+    # Адрес A(i,l) = matrix_A + (i * 6 + l) * 4
+    movl %edi, %eax             # загрузить i в eax
+    movl $6, %ebx               # размер строки
+    mull %ebx                   # eax = i * 6, edx испорчен
+    addl l_index, %eax          # eax = i * 6 + l
+
+    # Умножаем на 4 через сдвиг вместо mull
+    shll $2, %eax               # eax = (i * 6 + l) * 4
+
+    movl $matrix_A, %ebx        # базовый адрес матрицы
+    addl %ebx, %eax             # eax = адрес A(i,l)
+    movl (%eax), %edx           # edx = A(i,l)
+
+    # b(i) = A(k,i) + A(i,l)
+    addl %edx, %ecx             # ecx = A(k,i) + A(i,l)
+
+    # Сохранить результат в result_vector[i]
+    movl $result_vector, %ebx   # базовый адрес вектора результата
+    movl %ecx, (%ebx,%edi,4)    # сохранить b(i) в result_vector[i]
+
+    # Переход к следующему элементу
+    incl %edi                   # i++
+    cmpl $6, %edi               # все элементы обработаны?
+    jne calc_loop               # НЕТ - продолжить цикл
+
+    # Вывод результирующего вектора
+    jmp print_vector
+
+# Вывод результирующего вектора
+print_vector:
+    Puts "Результирующий вектор b:"
+
+    movl $0, %esi               # i = 0 (индекс элемента вектора)
+
+print_loop:
+    # Вывод строки "b[i] = значение" в одну строку
+    # Формируем строку в output_buf
+    movl $output_buf, %edi      # указатель на начало буфера
+
+    # Добавляем "b["
+    movb $'b', (%edi)
+    incl %edi
+    movb $'[', (%edi)
+    incl %edi
+
+    # Добавляем индекс i (0-5, всегда одна цифра)
+    movl %esi, %eax             # загрузить индекс i
+    addl $'0', %eax             # преобразовать в символ
+    movb %al, (%edi)
+    incl %edi
+
+    # Добавляем "] = "
+    movb $']', (%edi)
+    incl %edi
+    movb $' ', (%edi)
+    incl %edi
+    movb $'=', (%edi)
+    incl %edi
+    movb $' ', (%edi)
+    incl %edi
+
+    # Получаем значение элемента b(i)
+    movl $result_vector, %ebx   # базовый адрес вектора
+    movl (%ebx,%esi,4), %eax    # загрузить b(i) используя текущий %esi
+
+    # Сохраняем %esi перед вызовом функции
+    pushl %esi
+
+    # Преобразуем число в строку и добавляем в буфер
+    call convert_number_to_buf  # преобразовать число в строку
+
+    # Восстанавливаем %esi
+    popl %esi
+
+    # Добавляем перевод строки
+    movb $'\n', (%edi)
+    incl %edi
+
+    # Вычисляем длину строки и выводим
+    movl $output_buf, %ecx      # начало буфера
+    movl %edi, %edx             # текущая позиция (конец строки)
+    subl %ecx, %edx             # длина = конец - начало
+
+    # Вывод результата
+    movl $4, %eax               # номер системного вызова write
+    movl $1, %ebx               # дескриптор stdout
+    # ecx уже содержит адрес буфера
+    # edx уже содержит длину
+    int $0x80                   # выполнить системный вызов
+
+    # Переходим к следующему элементу
+    incl %esi                   # i++
+    cmpl $6, %esi               # все элементы выведены?
+    jne print_loop              # НЕТ - продолжить цикл
+
+    # Завершение работы
+    Puts "Завершение работы."
+    Exit $0                     # завершить программу успешно
+
+# Подпрограмма для преобразования числа из %eax в строку в буфер %edi
+# Вход: %eax - число, %edi - указатель на буфер
+# Выход: %edi - указатель на позицию после последней цифры
+convert_number_to_buf:
+    pushl %eax
+    pushl %ebx
+    pushl %ecx
+    pushl %edx
+    pushl %esi
+
+    movl %eax, %ebx             # копируем число в ebx
+    movl $10, %ecx              # делитель = 10
+
+    # Специальный случай: если число = 0
+    cmpl $0, %ebx
+    je convert_zero
+
+    # Нормальный случай: преобразование числа в строку
+    movl $0, %esi               # инициализация счетчика цифр
+
+convert_num_loop_body:
+    # Делим число на 10, получаем остаток (цифру)
+    movl %ebx, %eax             # загружаем число в eax
+    movl $0, %edx               # обнуляем edx перед делением
+    divl %ecx                   # eax = eax / 10, edx = остаток
+    movl %eax, %ebx             # сохраняем частное
+
+    # Преобразуем остаток в символ и помещаем в стек
+    addl $'0', %edx             # преобразовать цифру в код символа
+    pushl %edx                  # сохранить в стек
+
+    incl %esi                   # счетчик цифр
+
+    cmpl $0, %ebx               # частное = 0?
+    jne convert_num_loop_body   # НЕТ - продолжаем деление
+
+    # Извлекаем цифры из стека в правильном порядке
+
+extract_num_digits:
+    popl %eax                   # извлекаем код символа из стека
+    movb %al, (%edi)            # записываем в буфер
+    incl %edi                   # следующая позиция в буфере
+    decl %esi                   # уменьшаем счетчик
+    cmpl $0, %esi               # все цифры извлечены?
+    jne extract_num_digits      # НЕТ - продолжаем
+    jmp convert_num_done
+
+convert_zero:
+    # Вывод "0" если число равно 0
+    movb $'0', (%edi)
+    incl %edi
+
+convert_num_done:
+    popl %esi
+    popl %edx
+    popl %ecx
+    popl %ebx
+    popl %eax
+    ret
+.end
