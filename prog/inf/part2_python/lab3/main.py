@@ -3,9 +3,18 @@ import sys
 from statistics import mean, mode, median
 from data_splitter import split_data
 
+def read_data_from_file(filename):
+    if not filename.lower().endswith('.csv'):
+        raise ValueError("Файл должен иметь расширение .csv")
+    with open(filename, 'r') as file:
+        reader = csv.reader(file)
+        return [row for row in reader]
 
 # Чтение данных из csv-файла
 def read_data_from_file(filename):
+    # ПРАВКА! Добавил проверку, для корректной отработки тестирования pytest
+    if not filename.lower().endswith('.csv'):
+        raise ValueError("Файл должен иметь расширение .csv")
     with open(filename, mode='r', newline='') as file:
         raw_csv = csv.reader(file)
         # Пропустить первую строку
@@ -49,7 +58,7 @@ if __name__ == "__main__":
     if len(sys.argv) < 3:
         print("Использование: python3 main.py <путь_к_файлу.csv> <интервал>")
         sys.exit(1)
-    
+
     # Путь до файла
     filename = sys.argv[1]
     # Интервал
