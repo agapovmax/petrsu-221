@@ -16,7 +16,7 @@
 | 📌 | Промежуточная аттестация | 10.06.2026 | 30.06.2026 |
 
 ### Дисциплины 2 курс
-[📺](https://meet.cs.petrsu.ru/vadim) [Компьютерные сети](https://petrsu.ru/persons/1667/ponomarev) Пономарев Вадим Анатольевич [Вопросы](https://cs.petrsu.ru/~vadim/os2026/)
+[📺](https://meet.cs.petrsu.ru/vadim) [Компьютерные сети](https://petrsu.ru/persons/1667/ponomarev) Пономарев Вадим Анатольевич [Вопросы](https://cs.petrsu.ru/~vadim/os2026/) [Лабы](https://meet.cs.petrsu.ru/comp-seti)
 
 [📺](https://meet.cs.petrsu.ru/vadim) [Операционные системы](https://petrsu.ru/persons/1667/ponomarev) Пономарев Вадим Анатольевич [Вопросы](https://cs.petrsu.ru/~vadim/os2026/)
 
