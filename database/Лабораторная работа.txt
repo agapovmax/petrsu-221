@@ -1,0 +1,362 @@
+Напишите SQL-команды для создания всех таблиц базы данных:
+a. Для первичных ключей всех таблиц установите автоматическую генерацию значения.
+b. Установите связи между таблицами в соответствии с внешними ключами. Для каждой
+связи установите ограничения: каскадное обновление и запрет на каскадное удаление.
+
+
+Create Table tblTeacher(	--учитель, справочная
+intTeacherId integer identity(1,1),
+intTeacherName nvarchar(150) not Null,
+intTeacherYear integer not Null,
+fltTeacherSalary decimal(10,2) check (fltTeacherSalary >= 0),
+Primary key (intTeacherId));
+
+Create Table tblSubject(	--предмет, справочная
+intSubjectId integer identity(1,1),
+intSubjectName nvarchar(20) not Null,
+intSubjectVolume integer default 0,
+intTeacherId integer not Null,
+intLessonCount integer default 0,
+Primary key (intSubjectId),
+Foreign key (intTeacherId) references tblTeacher(intTeacherId) on update cascade on delete no action);
+
+Create Table tblLesson(		--урок, операционная
+intLessonId integer identity(1,1),
+intSubjectId integer not Null,
+darLessonDate date not Null,
+txtTheme nvarchar(100),
+Primary key (intLessonId),
+Foreign key (intSubjectId) references tblSubject(intSubjectId) on update cascade on delete no action);
+
+Create Table tblPupil(		--ученик, операционная
+intPupilId integer identity(1,1),
+txtPupilSurname nvarchar(30) not Null,
+txtPupilName nvarchar(25) not Null,
+datBirthday date not Null,
+chrPupilSex nvarchar(1) default 'м',
+txtAddress nvarchar(255),
+Primary key (intPupilId));
+
+Create Table tblMark(		--оценка, операционная
+intMarkId integer identity(1,1),
+intLessonId integer not Null,
+intPupilId integer not Null,
+intMarkValue integer not Null,
+txtMarkComment nvarchar(200),
+Primary key (intMarkId),
+Foreign key (intLessonId) references tblLesson(intLessonId) on update cascade on delete no action,
+Foreign key (intPupilId) references tblPupil(intPupilId) on update cascade on delete no action);
+
+2. Составьте схему в виде орграфа (вершины – таблицы, дуги определяют порядок заполнения
+таблиц), описывающую последовательность заполнения таблиц в базе данных.
+Принцип простой. Ищем родительскую таблицу только с primary key, ищем упоминание этой таблицы в других таблицах в Foreign key.
+tblTeacher -> tblSubject	-> 	tblPupil 	-> tblLesson -> 	tblMark
+
+3. Напишите SQL-команды для заполнения всех таблиц данными: по 10 записей в справочных
+таблицах, по 30 записей в операционных таблицах.
+
+-- учителя
+insert into tblTeacher (intTeacherName, intTeacherYear, fltTeacherSalary)
+VALUES 
+('Агапов Максим', 	2015, 85000.50),	--decimal!
+('Лещенко Дарья', 	2018, 72000.00),
+('Краевский Валерий', 	2010, 98000.75),
+('Вишняков Евгений', 	2020, 65000.00),
+('Антипина Алёна', 	2012, 91000.25),
+('Костецкая Ольга Андреевна', 2016, 79500.00),
+('Ващенкова Елизавета', 2019, 74000.50),
+('Сафронова Полина', 	2014, 88000.00),
+('Смирнов Андрей', 	2011, 95000.75),
+('Табота Алексей', 	2017, 81000.00);
+
+-- предметы
+INSERT INTO tblSubject (intSubjectName, intTeacherId)
+VALUES 
+('Математика', 		1),
+('Русский язык', 	2),
+('Физика', 		3),
+('История', 		4),
+('Химия', 		5),
+('Литература', 		6),
+('Биология', 		7),
+('География', 		8),
+('Информатика', 	9),
+('Физкультура', 	10);
+
+-- ученики
+INSERT INTO tblPupil (txtPupilSurname, txtPupilName, datBirthday, chrPupilSex)
+VALUES 
+('Щеголева', 'Людмила', '2010-05-12', 'ж'),
+('Рего', 'Григорий', '2010-03-28', 'м'),
+('Чистяков', 'Дмитрий', '2010-11-30', 'м'),
+('Кулаков', 'Кирилл', '2010-07-15', 'м'),
+('Богоявленский', 'Юрий', '2010-09-02', 'м'),
+('Соколов', 'Владислав', '2010-12-31', 'м'),
+('Шмидт', 'Елизавета', '2010-04-18', 'ж'),
+('Кручек', 'Марина', '2010-10-24', 'ж'),
+('Мотькина', 'Наталья', '2010-06-21', 'ж'),
+('Птицына', 'Елена', '2010-08-31', 'ж');
+
+
+--заполнение по 30 записей остальных таблиц
+-- предметы
+
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('1', '2026-04-10', 'Циферки');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('1', '2026-04-11', 'Сложение');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('1', '2026-04-12', 'Вычитание');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('1', '2026-04-13', 'Фрактал');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('1', '2026-04-14', 'Матрицы');
+
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('2', '2026-04-10', 'Буковки');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('2', '2026-04-11', 'Знаки препинания');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('2', '2026-04-12', 'Орфография');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('2', '2026-04-13', 'Ударение');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('2', '2026-04-14', 'Деепричастие');
+
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('3', '2026-04-10', 'Масса');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('3', '2026-04-11', 'Ускорение');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('3', '2026-04-12', 'Физика тел');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('3', '2026-04-13', 'Фазовый переход');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('3', '2026-04-14', 'Бифуркция');
+
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('4', '2026-04-10', 'Цезарь');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('4', '2026-04-11', 'Сенат');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('4', '2026-04-12', 'Македонский');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('4', '2026-04-13', 'ВОВ');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('4', '2026-04-14', 'Путин');
+
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('5', '2026-04-10', 'Кислоты');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('5', '2026-04-11', 'Щелочи');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('5', '2026-04-12', 'Аминокислоты');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('5', '2026-04-13', 'Радикаты');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('5', '2026-04-14', 'Катализаторы');
+
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('6', '2026-04-10', 'Онегин - леприкон?');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('6', '2026-04-11', 'Му-му - кот?');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('6', '2026-04-12', 'Пушкин - убийца?');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('6', '2026-04-13', 'Лев Толстой - гений');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('6', '2026-04-14', 'Обломовщина');
+
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('7', '2026-04-10', 'Эволюция');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('7', '2026-04-11', 'Крабы');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('7', '2026-04-12', 'Растительный мир');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('7', '2026-04-13', 'Гены');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('7', '2026-04-14', 'Премия Дарвина');
+
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('8', '2026-04-10', 'Куала-Лумпур');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('8', '2026-04-11', 'Моря');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('8', '2026-04-12', 'Океяны');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('8', '2026-04-13', 'Сахалин');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('8', '2026-04-14', 'Гольфстрим');
+
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('9', '2026-04-10', 'Буль и его алгебра');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('9', '2026-04-11', 'Системы счисления');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('9', '2026-04-12', 'Двоичный код');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('9', '2026-04-13', 'Нейросети');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('9', '2026-04-14', 'Алгоритмы');
+
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('10', '2026-04-10', 'Прес качат');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('10', '2026-04-11', 'Бегат');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('10', '2026-04-12', 'Атжимания');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('10', '2026-04-13', 'Ест');
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme) VALUES	('10', '2026-04-14', 'Спат');
+
+
+-- оценки
+INSERT INTO tblMark (intLessonId, intPupilId, intMarkValue, txtMarkComment) VALUES	(1, 1, 5, 'Отличная работа!');
+INSERT INTO tblMark (intLessonId, intPupilId, intMarkValue, txtMarkComment) VALUES	(1, 2, 4, NULL); -- без комментариев
+INSERT INTO tblMark (intLessonId, intPupilId, intMarkValue, txtMarkComment) VALUES	(2, 3, 3, 'Нужно подтянуть тему');
+INSERT INTO tblMark (intLessonId, intPupilId, intMarkValue, txtMarkComment) VALUES	(2, 4, 4, 'Хорошо');
+INSERT INTO tblMark (intLessonId, intPupilId, intMarkValue, txtMarkComment) VALUES	(3, 5, 4, 'Хорошо');
+
+INSERT INTO tblMark (intLessonId, intPupilId, intMarkValue, txtMarkComment) VALUES	(4, 6, 5, 'Отлично');
+INSERT INTO tblMark (intLessonId, intPupilId, intMarkValue, txtMarkComment) VALUES	(5, 7, 5, 'Отлично');
+INSERT INTO tblMark (intLessonId, intPupilId, intMarkValue, txtMarkComment) VALUES	(6, 8, 2, 'Пересдача');
+INSERT INTO tblMark (intLessonId, intPupilId, intMarkValue, txtMarkComment) VALUES	(7, 9, 3, 'Нужно подтянуть тему');
+INSERT INTO tblMark (intLessonId, intPupilId, intMarkValue, txtMarkComment) VALUES	(8, 10, 5, 'Отлично');
+
+INSERT INTO tblMark (intLessonId, intPupilId, intMarkValue, txtMarkComment) VALUES	(9, 1, 3, 'Нужно подтянуть тему');
+INSERT INTO tblMark (intLessonId, intPupilId, intMarkValue, txtMarkComment) VALUES	(9, 2, 5, 'Отлично');
+INSERT INTO tblMark (intLessonId, intPupilId, intMarkValue, txtMarkComment) VALUES	(10, 3, 5, 'Отлично');
+INSERT INTO tblMark (intLessonId, intPupilId, intMarkValue, txtMarkComment) VALUES	(9, 4, 5, 'Отлично');
+INSERT INTO tblMark (intLessonId, intPupilId, intMarkValue, txtMarkComment) VALUES	(8, 5, 5, 'Отлично');
+
+INSERT INTO tblMark (intLessonId, intPupilId, intMarkValue, txtMarkComment) VALUES	(4, 6, 3, 'Нужно подтянуть тему');
+INSERT INTO tblMark (intLessonId, intPupilId, intMarkValue, txtMarkComment) VALUES	(5, 7, 2, 'На пересдачу');
+INSERT INTO tblMark (intLessonId, intPupilId, intMarkValue, txtMarkComment) VALUES	(6, 8, 2, 'За плохое поведение');
+INSERT INTO tblMark (intLessonId, intPupilId, intMarkValue, txtMarkComment) VALUES	(7, 9, 3, 'Нужно подтянуть тему');
+INSERT INTO tblMark (intLessonId, intPupilId, intMarkValue, txtMarkComment) VALUES	(8, 10, 5, 'Отлично');
+
+INSERT INTO tblMark (intLessonId, intPupilId, intMarkValue, txtMarkComment) VALUES	(9, 10, 3, 'Нужно подтянуть тему');
+INSERT INTO tblMark (intLessonId, intPupilId, intMarkValue, txtMarkComment) VALUES	(10, 9, 5, 'Отлично');
+INSERT INTO tblMark (intLessonId, intPupilId, intMarkValue, txtMarkComment) VALUES	(10, 8, 5, 'Отлично');
+INSERT INTO tblMark (intLessonId, intPupilId, intMarkValue, txtMarkComment) VALUES	(9, 7, 5, 'Отлично');
+INSERT INTO tblMark (intLessonId, intPupilId, intMarkValue, txtMarkComment) VALUES	(8, 6, 5, 'Отлично');
+
+INSERT INTO tblMark (intLessonId, intPupilId, intMarkValue, txtMarkComment) VALUES	(7, 5, 3, 'Хорошо');
+INSERT INTO tblMark (intLessonId, intPupilId, intMarkValue, txtMarkComment) VALUES	(6, 4, 4, 'Хорошо');
+INSERT INTO tblMark (intLessonId, intPupilId, intMarkValue, txtMarkComment) VALUES	(5, 3, 4, 'Хорошо');
+INSERT INTO tblMark (intLessonId, intPupilId, intMarkValue, txtMarkComment) VALUES	(4, 2, 4, 'Хорошо');
+INSERT INTO tblMark (intLessonId, intPupilId, intMarkValue, txtMarkComment) VALUES	(4, 1, 4, 'Хорошо');
+
+
+-- автоматически (есть куда стремиться)
+WITH RECURSIVE cte AS (
+    SELECT 
+        DATE '2024-09-02' AS lesson_date,
+        (RANDOM() * 9 + 1)::INTEGER AS subject_id,
+        ROW_NUMBER() OVER() AS rn
+    UNION ALL
+    SELECT 
+        lesson_date + INTERVAL '7 days',
+        (RANDOM() * 9 + 1)::INTEGER,
+        rn + 1
+    FROM cte
+    WHERE rn < 30
+)
+INSERT INTO tblLesson (intSubjectId, darLessonDate, txtTheme)
+SELECT 
+    subject_id,
+    lesson_date,
+    CASE 
+        WHEN subject_id = 1 THEN 'Тема: Квадратные уравнения'
+        WHEN subject_id = 2 THEN 'Тема: Сложносочиненные предложения'
+        WHEN subject_id = 3 THEN 'Тема: Законы Ньютона'
+        WHEN subject_id = 4 THEN 'Тема: Древняя Русь'
+        WHEN subject_id = 5 THEN 'Тема: Таблица Менделеева'
+        WHEN subject_id = 6 THEN 'Тема: Анализ стихотворения'
+        WHEN subject_id = 7 THEN 'Тема: Строение клетки'
+        WHEN subject_id = 8 THEN 'Тема: Политическая карта мира'
+        WHEN subject_id = 9 THEN 'Тема: Алгоритмы и исполнители'
+        ELSE 'Тема: Баскетбол: правила и техника'
+    END AS theme_text
+FROM cte;		
+
+
+4. Напишите формулировки 5 заданий на выборку данных к базе данных, напишите соответствующие заданиям Select-команды. Запросы должны содержать различные составные условия на значения данных. Некоторые запросы должны предполагать использование соединений таблиц, группировку, сортировку, условия на группу. Задания должны быть для разных таблиц, структура запросов не должна повторяться.
+
+--задание 1. Вывести строку с ФИО преподавателя и его ЗП, у которого она наибольшая 
+*переделать с агрегатной функцией MAX
+
+# ИСпользуем MAX
+SELECT 
+    intTeacherName,
+    fltTeacherSalary
+FROM tblTeacher
+WHERE fltTeacherSalary = (
+    SELECT MAX(fltTeacherSalary)
+    FROM tblTeacher
+);
+
+
+--задание 2. Для каждого учителя посчитать общее количество проведенных уроков и количество выставленных оценок. Вывести имя учителя и оба посчитанных значения.
+* не использовать alias. В сложных запросах, сложно разобраться
+SELECT 
+    t.intTeacherName,	-- ищем ФИО учителей
+    COUNT(DISTINCT l.intLessonId) AS LessonsCount, --считаем только уникальные значения уроков чтобы не считать
+    COUNT(m.intMarkId) AS MarksCount	--считаем оценки
+FROM tblTeacher t
+JOIN tblSubject s ON t.intTeacherId = s.intTeacherId
+JOIN tblLesson l ON s.intSubjectId = l.intSubjectId
+LEFT JOIN tblMark m ON l.intLessonId = m.intLessonId
+GROUP BY t.intTeacherName;
+
+--задание 3. Успеваемость по конкретному предмету. Вывести список всех уроков по предмету "математика", и для каждого посчитать среднюю оценку. Показать только те уроки, где средняя оценка ниже 4.0. Отсортировать результаты по возрастанию средней оценки.
+SELECT 
+    --l.intLessonId, --l - это алиас таблицы внутри запроса. Какой собственно урок
+    l.txtTheme,	--тема урока
+    AVG(m.intMarkValue) AS AverageMark --среднее по оценкам выставленным
+FROM tblLesson l --из таблицы уроков
+JOIN tblMark m ON l.intLessonId = m.intLessonId --соединяем таблицу уроков с таблицей оценок. Это даст для каждого урока (l) получить все связанные с ним оценки (m)
+JOIN tblSubject s ON l.intSubjectId = s.intSubjectId --теперь соединяем таблицу уроков с таблицей предметов. Это нужно, чтобы отфильтровать уроки по названию предмета
+WHERE s.intSubjectName = 'Математика' --ищем математику для группировки её оценок
+GROUP BY l.intLessonId, l.txtTheme --да, нужно указать все таблицы из селекта вначале, чтобы можно было получить группировку
+HAVING AVG(m.intMarkValue) < 4.0 --ищем только оценки ниже 4
+ORDER BY AverageMark ASC; --сортируем
+
+--задание 4. Стоимость одного выставленного бала из зарплаты. Для каждого учителя получаем его зарплату и сумму выставленных им оценок. Выводим таблицу с ФИО учителя, его ЗП, сумму выставленных баллов и стоимость одного балла полученную из ЗП/сумму баллов). 
+WITH TeacherStats AS ( --что нам вообще надо
+    SELECT 
+        t.intTeacherId, --ид учителя
+        t.intTeacherName, --имя
+        t.fltTeacherSalary, -- зп
+        SUM(m.intMarkValue) AS TotalMarksSum --считаем сумму всех выставленных баллов
+    FROM tblTeacher t
+    JOIN tblSubject s ON t.intTeacherId = s.intTeacherId
+    JOIN tblLesson l ON s.intSubjectId = l.intSubjectId
+    JOIN tblMark m ON l.intLessonId = m.intLessonId
+    GROUP BY t.intTeacherId, t.intTeacherName, t.fltTeacherSalary
+)
+
+SELECT TOP 1
+    intTeacherName,
+    fltTeacherSalary,
+    TotalMarksSum,
+    CAST(fltTeacherSalary AS DECIMAL(10,2)) / CAST(TotalMarksSum AS DECIMAL(10,2)) AS CostPerPoint
+FROM TeacherStats
+ORDER BY CostPerPoint DESC;
+
+--задание 5. Успеваемость. Получаем таблицу состоящую из ФИО ученика и его среднего балла по всем предметам
+SELECT
+    tblPupil.txtPupilSurname + ' ' + tblPupil.txtPupilName AS ФИО,
+    AVG(tblMark.intMarkValue * 1.0) AS Средний_Балл
+FROM tblPupil
+JOIN tblMark ON tblPupil.intPupilId = tblMark.intPupilId
+GROUP BY tblPupil.txtPupilSurname, tblPupil.txtPupilName
+ORDER BY Средний_Балл ASC
+LIMIT 10;
+
+
+Интересное примечание. Формат ISO: Для технических целей и баз данных часто используется стандартный формат (2024-02-05). Чем удобен - сортировка по дате. Например сначала идёт по году, потом по месяцу и числу. Когда надо найти файлы видеозаписей с камер наблюдения, поиск в российском формате доставляет неудобства. Особенно страшно будет смотреть на таблицу intLessonId 
+Поэтому вносить изменения в представление даты в БД не буду. Проще будет это сделать на стороне ПО.
+
+5. Напишите программу на языке программирования высокого уровня, которая делает выгрузку содержимого всех таблиц базы данных в соответствующие файлы формата csv. Программа не содержит графического интерфейса пользователя.
+
+Жесть, настройки подключения к SQL SMS сделаны максимально не удобно. Завел локального пользователя export, дал права, а авторизоваться он все равно не может. Оказыватеся, по-умолчанию в WEindows отключен смешанный режим аутентификации, и сервер пускает только по Windows-авторизации. Чтобы включить смешанный режим, надо лезть в реесстр:
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\MSSQL16.SQLEXPRESS\MSSQLServer" -Name "LoginMode" -Value 2
+
+ЧТобы таблица сразу чутко открывалась в excel, надо установить разделитель sep=';'. Иначе придётся играть в импорт данных.
+
+
+8.Напишите хранимую процедуру, которая создает копию всех таблиц с их данными. Имена копий таблиц должны состоят из имени исходной таблицы и номера, являющегося параметром процедуры.
+ЗАчем параметр? Бэкапы делаем по требованию, и чтобы различать копии, надо их именовать.
+ХП - это некое подобие функции, которая хранится на сервере. ПЛюсы впечатляющие:
++ возможность запускать ХП без предоставления прав на БД
++ очевидно, все преимущества функций как в других ЯП - многократное переиспользование по имени
++ сокращение трафика для передачи запроса (ХП ведь лежит и ВЫПОЛНЯЕТСЯ на сервере. План выполнения сохраняется посе выполнения и запуск происходит мгновенно). КОмпиляция в P-Code (псевдокод)
++ расширение функционала через параметры вызова ХП
++ можно объединить несколько операций в одну транзакцию (группа операций которые ыдолжны выполниться вместе, или не выполниться не одной - атомарность)
+* если много операций надо выполнить сразу пачкой, легко может случиться сбой на любом этапе и часть выполнится, а часть упадет - и как такое исправлять, это боль. А вот транзакция либо выполнится и всё ок, либо нет но ничего не сломается)
+
+Схема работы:
+1. Вызов: EXEC usp_CopyAllTables @CopyNumber = 1
+2. Проверка: параметр @CopyNumber корректен? (не отрицательный, не NULL)
+3. Поиск таблиц: найти все таблицы, начинающиеся на 'tbl' без цифр
+4. Создать список: временная таблица #SourceTables
+5. Для каждой таблицы в списке (помним про N'.'):
+   5.1. Собрать имя: 'tblSubject' + '1' = 'tblSubject1'
+   5.2. Удалить старую копию (если есть)
+   5.3. Создать новую: SELECT * INTO tblSubject1 FROM tblSubject
+   5.4. Напечатать в консоль
+
+6. Очистить ресурсы (закрыть курсор, удалить временную таблицу)
+7. Вывод в консоль "Копирование завершено"
+
+9. Создайте хранимую процедуру, которая заполняет столбец intLessonCount («Количество проведенных уроков») в таблице tblSubject правильными данными. Проверьте работу процедуры.
+
+Вспоминаем. Есть предмет intSubjectName в tbl.Subject, количество часов intSubjectVolume и количество уроков по предмету intLessonCnt
+
+Итак, с чем можно столкнуться? Количество уроков intLessonCount в таблице tblSubject. Уроки tblLesson c FK intsubjectId.
+!!! Поле intLessonCount может устареть (если добавлять или удалялять уроки напрямую, без обновления счетчика)
+
+Чтобы этого избежать, надо чтобы хранимая процедура пересчитывала intLessonCount на основе свежих данных из tblLesson. Это самое главное
+
+Как это работает
+1. Первый UPDATE (обновляем предметы с уроками)
+   Считаем уроки: SELECT intSubjectId, COUNT(*) FROM tblLesson GROUP BY intSubjectId
+   Обновляем: UPDATE tblSubject SET intLessonCount = посчитанное_значение
+2. Второй UPDATE (обнуляем предметы без уроков)
+   Находим предметы, которых нет в tblLesson
+   UPDATE tblSubject SET intLessonCount = 0
+3. Выводим результаты (SELECT с LEFT JOIN)
+4. Выводтим результат в консоль
