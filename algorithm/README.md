@@ -43,4 +43,4 @@
 
 | Оценка 3 | Оценка 4-5 |
 | :---: | :---: |
-|Успешно сдать все лабораторные работы в [Лабораторная №2. Заочное](https://petrsulabs.contest.codeforces.com/group/qeb9zA9PAI/contest/665303)| Пообщаться с преподом. Список из 15 вопросов. В билете 2 вопроса + задача |
+|Успешно сдать все лабораторные работы в [Лабораторная №2. Заочное](https://petrsulabs.contest.codeforces.com/group/qeb9zA9PAI/contest/665303)| Пообщаться с преподом. Список из 15 [вопросов](https://github.com/agapovmax/petrsu-221/blob/main/algorithm/%D0%92%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D1%8B%20%D0%BA%20%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD%D1%83.pdf). В билете 2 вопроса + задача |
