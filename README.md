@@ -2,6 +2,24 @@
 
 **Староста группы** Жилинский Вячеслав https://t.me/doomzorqe, https://vk.com/doomzorqe
 
+## 3 КУРС
+
+### График учебного процесса 2026-2027
+
+[📺](https://meet.cs.petrsu.ru/vadim) [Иностранный язык](https://petrsu.ru/persons/1667/ponomarev) Пономарев Вадим Анатольевич
+
+[📺](https://meet.cs.petrsu.ru/vadim) [Теория вероятностей и математическая статистика](https://petrsu.ru/persons/1667/ponomarev) Пономарев Вадим Анатольевич
+
+[📺](https://meet.cs.petrsu.ru/vadim) [Web-технологии](https://petrsu.ru/persons/1667/ponomarev) Пономарев Вадим Анатольевич
+
+[📺](https://meet.cs.petrsu.ru/vadim) [Базы данных](https://petrsu.ru/persons/1667/ponomarev) Пономарев Вадим Анатольевич
+
+[📺](https://meet.cs.petrsu.ru/vadim) [Проектирование информационных систем](https://petrsu.ru/persons/1667/ponomarev) Пономарев Вадим Анатольевич
+
+[📺](https://meet.cs.petrsu.ru/vadim) [Технология производства программного обеспечения](https://petrsu.ru/persons/1667/ponomarev) Пономарев Вадим Анатольевич
+
+[📺](https://meet.cs.petrsu.ru/vadim) [Кибериммунная методология разработки ПО](https://petrsu.ru/persons/1667/ponomarev) Пономарев Вадим Анатольевич 
+
 ## 2 КУРС
 
 ### График учебного процесса 2025-2026
