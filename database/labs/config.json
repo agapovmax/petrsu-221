@@ -1,0 +1,9 @@
+{
+  "connection": {
+    "server_name": "localhost\\SQLEXPRESS",
+    "database_name": "master",
+    "user_login": "export",
+    "user_password": "export"
+  },
+  "output_folder": "C:/SQL_Export"
+}
