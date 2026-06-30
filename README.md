@@ -2,6 +2,24 @@
 
 **Староста группы** Жилинский Вячеслав https://t.me/doomzorqe, https://vk.com/doomzorqe
 
+## 3 КУРС
+
+### График учебного процесса 2026-2027
+
+[📺](https://meet.cs.petrsu.ru/vadim) [Иностранный язык](https://petrsu.ru/persons/1667/ponomarev) Пономарев Вадим Анатольевич
+
+[📺](https://meet.cs.petrsu.ru/vadim) [Теория вероятностей и математическая статистика](https://petrsu.ru/persons/1667/ponomarev) Пономарев Вадим Анатольевич
+
+[📺](https://meet.cs.petrsu.ru/vadim) [Web-технологии](https://petrsu.ru/persons/1667/ponomarev) Пономарев Вадим Анатольевич
+
+[📺](https://meet.cs.petrsu.ru/vadim) [Базы данных](https://petrsu.ru/persons/1667/ponomarev) Пономарев Вадим Анатольевич
+
+[📺](https://meet.cs.petrsu.ru/vadim) [Проектирование информационных систем](https://petrsu.ru/persons/1667/ponomarev) Пономарев Вадим Анатольевич
+
+[📺](https://meet.cs.petrsu.ru/vadim) [Технология производства программного обеспечения](https://petrsu.ru/persons/1667/ponomarev) Пономарев Вадим Анатольевич
+
+[📺](https://meet.cs.petrsu.ru/vadim) [Кибериммунная методология разработки ПО](https://petrsu.ru/persons/1667/ponomarev) Пономарев Вадим Анатольевич 
+
 ## 2 КУРС
 
 ### График учебного процесса 2025-2026
@@ -16,11 +34,14 @@
 | 📌 | Промежуточная аттестация | 10.06.2026 | 30.06.2026 |
 
 ### Дисциплины 2 курс
-[📺](https://meet.cs.petrsu.ru/vadim) [Компьютерные сети](https://petrsu.ru/persons/1667/ponomarev) Пономарев Вадим Анатольевич [Вопросы](https://cs.petrsu.ru/~vadim/os2026/) [Лабы](https://meet.cs.petrsu.ru/comp-seti)
 
-[📺](https://meet.cs.petrsu.ru/vadim) [Операционные системы](https://petrsu.ru/persons/1667/ponomarev) Пономарев Вадим Анатольевич [Вопросы](https://cs.petrsu.ru/~vadim/os2026/)
+👌[📺](https://meet.cs.petrsu.ru/vadim) [Компьютерные сети](https://petrsu.ru/persons/1667/ponomarev) Пономарев Вадим Анатольевич [Вопросы](https://cs.petrsu.ru/~vadim/os2026/) [Лабы](https://meet.cs.petrsu.ru/comp-seti)
 
-[📺](https://telemost.yandex.ru/j/09109134541043) [Алгоритмы и структуры данных](https://student.petrsu.ru/subject/view/10966) [Рейкенен Ярослав Осипович](https://vk.com/yarslv3)
+👌[📺](https://meet.cs.petrsu.ru/vadim) [Операционные системы](https://petrsu.ru/persons/1667/ponomarev) Пономарев Вадим Анатольевич [Вопросы](https://cs.petrsu.ru/~vadim/os2026/)
+
+👌[📺](https://telemost.yandex.ru/j/09109134541043) [Алгоритмы и структуры данных](https://student.petrsu.ru/subject/view/10966) [Рейкенен Ярослав Осипович](https://vk.com/yarslv3)
+
+👌[📺](https://meet.cs.petrsu.ru/database) [Базы данных](https://student.petrsu.ru/subject/view/5161) [Щеголева Людмила Владимировна](https://petrsu.ru/persons/345/tshegoleva) 
 
 👌[📺](https://meet.cs.petrsu.ru/kiri) [Информационные системы в бизнесе и управлении](https://student.petrsu.ru/subject/view/2919) [Кириленко Александр Николаевич](https://petrsu.ru/persons/2675/kirilenko)
 
@@ -34,7 +55,7 @@
 
 👌[📺](https://meet.cs.petrsu.ru/kulakov) Тестирование ПО [Кулаков Кирилл Александрович](https://petrsu.ru/persons/2309/kulakov)
 
-[📺](https://meet.cs.petrsu.ru/rego) Объектно-ориентированное программирование [Рего Григорий Эйнович](https://petrsu.ru/persons/9919/rego)
+👌[📺](https://meet.cs.petrsu.ru/rego) Объектно-ориентированное программирование [Рего Григорий Эйнович](https://petrsu.ru/persons/9919/rego)
 
 ## 1 КУРС
 
