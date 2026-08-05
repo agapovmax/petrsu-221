@@ -4,7 +4,10 @@
 
 ## 3 КУРС
 
-### График учебного процесса 2026-2027
+<details>
+<summary>
+<b>График учебного процесса 2026-2027</b>
+</summary>
 
 [📺](https://meet.cs.petrsu.ru/vadim) [Иностранный язык](https://petrsu.ru/persons/1667/ponomarev) Пономарев Вадим Анатольевич
 
@@ -20,9 +23,14 @@
 
 [📺](https://meet.cs.petrsu.ru/vadim) [Кибериммунная методология разработки ПО](https://petrsu.ru/persons/1667/ponomarev) Пономарев Вадим Анатольевич 
 
+</details>
+
 ## 2 КУРС
 
-### График учебного процесса 2025-2026
+<details>
+<summary>
+<b>График учебного процесса 2025-2026</b>
+</summary>
 
 |   | Период | Начало | Конец |
 | ------ | ------ | ------ | ------ |
@@ -33,8 +41,13 @@
 | 📙 | Теоретическое обучение | 03.02.2026 | 09.06.2026 |
 | 📌 | Промежуточная аттестация | 10.06.2026 | 30.06.2026 |
 
-### Дисциплины 2 курс
-
+</details>
+  
+<details>
+<summary>
+<b>Дисциплины 2 курс</b>
+</summary>
+  
 👌[📺](https://meet.cs.petrsu.ru/vadim) [Компьютерные сети](https://petrsu.ru/persons/1667/ponomarev) Пономарев Вадим Анатольевич [Вопросы](https://cs.petrsu.ru/~vadim/os2026/) [Лабы](https://meet.cs.petrsu.ru/comp-seti)
 
 👌[📺](https://meet.cs.petrsu.ru/vadim) [Операционные системы](https://petrsu.ru/persons/1667/ponomarev) Пономарев Вадим Анатольевич [Вопросы](https://cs.petrsu.ru/~vadim/os2026/)
@@ -57,9 +70,14 @@
 
 👌[📺](https://meet.cs.petrsu.ru/rego) Объектно-ориентированное программирование [Рего Григорий Эйнович](https://petrsu.ru/persons/9919/rego)
 
+</details>
+
 ## 1 КУРС
 
-### График учебного процесса 2024-2025
+<details>
+<summary>
+<b>График учебного процесса 2024-2025</b>
+</summary>
 
 |   | Период | Начало | Конец |
 | ------ | ------ | ------ | ------ |
@@ -70,7 +88,12 @@
 | 📙 | Теоретическое обучение | 03.02.2026 | 08.06.2026 |
 | 📌 | Промежуточная аттестация | 09.06.2026 | 30.06.2026 |
 
-### Дисциплины 1 курс
+</details>
+  
+<details>
+<summary>
+<b>Дисциплины 1 курс</b>
+</summary>
 
 👌[📺](https://us04web.zoom.us/j/79656901024?pwd=5rkAeu3c6bwRn0Hnv07Iuxpjb1mBbO.1) [Аналитическая геометрия](https://student.petrsu.ru/subject/view/2022) 
 
@@ -90,6 +113,12 @@
 
 👌[📺](https://us04web.zoom.us/j/73879846958?pwd=SoJcZwxmIKZ9fdgsBW9DbS1B8pU0pW.1) [Основы российской государственности](https://student.petrsu.ru/subject/view/121252)
 
+</details>
+
 ### Полезные ссылки
+
+[Расписание занятий](https://student.petrsu.ru/profile-schedule/)
+
+[Зачётная книжка](https://student.petrsu.ru/profile/recordbook)
 
 [Moodle](https://moodle2.petrsu.ru/?)
