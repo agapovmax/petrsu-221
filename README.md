@@ -9,19 +9,19 @@
 <b>График учебного процесса 2026-2027</b>
 </summary>
 
-[📺](https://meet.cs.petrsu.ru/vadim) [Иностранный язык](https://petrsu.ru/persons/1667/ponomarev) Пономарев Вадим Анатольевич
+[📺]() [Иностранный язык](https://petrsu.ru/persons/2730/nilova) Нилова Мария Анатольевна
 
-[📺](https://meet.cs.petrsu.ru/vadim) [Теория вероятностей и математическая статистика](https://petrsu.ru/persons/1667/ponomarev) Пономарев Вадим Анатольевич
+[📺](https://meet.cs.petrsu.ru/vadim) [Теория вероятностей и математическая статистика](https://petrsu.ru/persons/1667/ponomarev) Бородина Александра Валентиновна
 
-[📺](https://meet.cs.petrsu.ru/vadim) [Web-технологии](https://petrsu.ru/persons/1667/ponomarev) Пономарев Вадим Анатольевич
+[📺](https://meet.cs.petrsu.ru/imit_zaoch) [Web-технологии](https://petrsu.ru/persons/1668/tchistyakov) Чистяков Дмитрий Борисович
 
-[📺](https://meet.cs.petrsu.ru/vadim) [Базы данных](https://petrsu.ru/persons/1667/ponomarev) Пономарев Вадим Анатольевич
+[📺](https://meet.cs.petrsu.ru/database) [Базы данных](https://student.petrsu.ru/subject/view/5161) [Щеголева Людмила Владимировна](https://petrsu.ru/persons/345/tshegoleva) 
 
-[📺](https://meet.cs.petrsu.ru/vadim) [Проектирование информационных систем](https://petrsu.ru/persons/1667/ponomarev) Пономарев Вадим Анатольевич
+[📺]() [Проектирование информационных систем](https://petrsu.ru/persons/2675/kirilenko) Кириленко Александр Николаевич
 
-[📺](https://meet.cs.petrsu.ru/vadim) [Технология производства программного обеспечения](https://petrsu.ru/persons/1667/ponomarev) Пономарев Вадим Анатольевич
+[📺]() [Технология производства программного обеспечения](https://petrsu.ru/persons/1645/korzun) Корзун Дмитрий Жоржевич
 
-[📺](https://meet.cs.petrsu.ru/vadim) [Кибериммунная методология разработки ПО](https://petrsu.ru/persons/1667/ponomarev) Пономарев Вадим Анатольевич 
+[📺]() [Кибериммунная методология разработки ПО](https://petrsu.ru/persons/1989/zhukov) Жуков Артем Владимирович 
 
 </details>
 
