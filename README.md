@@ -26,9 +26,9 @@
 <b>Дисциплины 3 курс</b>
 </summary>
 
-[📺]() [Иностранный язык](https://petrsu.ru/persons/2730/nilova) Нилова Мария Анатольевна
+[📺](https://meet.jit.si/NarrowYieldsManufactureScornfully) [Иностранный язык](https://petrsu.ru/persons/2730/nilova) Нилова Мария Анатольевна
 
-[📺](https://meet.cs.petrsu.ru/vadim) [Теория вероятностей и математическая статистика](https://petrsu.ru/persons/1667/ponomarev) Бородина Александра Валентиновна
+[📺](https://meet.jit.si/appstat) [Теория вероятностей и математическая статистика](https://petrsu.ru/persons/1126/borodina) Бородина Александра Валентиновна
 
 [📺](https://meet.cs.petrsu.ru/imit_zaoch) [Web-технологии](https://petrsu.ru/persons/1668/tchistyakov) Чистяков Дмитрий Борисович
 
